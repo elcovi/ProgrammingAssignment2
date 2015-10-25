@@ -33,8 +33,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 ##------------------------------------------------------------
 ##  'cacheSolve', does three things:
+
 ##  1) It checks the content of the cache (c_im2) calling 'x$getinverse' and
-##      determines if it has content, or it doesn't.
+##      determines if it has content, or not.
 ##  2) If it doesn't (i.e., if it is NULL), it gets the matrix created by 
 ##      'makeCacheMatrix' calling 'x$get()' and computes its inverse matrix.
 ## NOTE:    The conditional (below) is an add on that determines if the inverse 
@@ -54,8 +55,6 @@ cacheSolve <- function(x, ...) {
     }
     
     data <- x$get()
-    
-    
     
     if ( inherits( try( c_im2 <- solve(data, ...), silent=TRUE),  "try-error")){
         print("Oops, the inverse matrix doesn't exist.")
